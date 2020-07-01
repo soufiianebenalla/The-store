@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django-k-camp Store</title>
+</head>
+
+<body>
+    <div>
+        <h1>Products:</h1>
+        <ul>
+            {% for product in products %}
+            <li>
+                <h3>{{product.title}}</h3>
+                <p>multicoloured bucket Exterior with mesh and
+                    rhinestone details. Chain handles with combined
+                    materials. Chain shoulder strap. Lined interior.</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>
