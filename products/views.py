@@ -13,9 +13,8 @@ def show_time(request):
 
 def products_list(request):
     products = Product.objects.all()
-    if len(products):
-        return render(request, 'products/products-list.html',
-                      {'products': products})
+    return render(request, 'products/products-list.html',
+                  {'products': products})
 
 
 def product_details(request, pk):
