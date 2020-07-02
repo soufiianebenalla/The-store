@@ -9,13 +9,21 @@
 
 <body>
     <div>
+        {% for product in products %}
         <div>
             <h1>{{product.title}}</h1>
             <p>{{product.description}}</p>
         </div>
-        <a href="{% url 'products_list'%}">
-            <p>go back home</p>
-        </a>
+        {% empty %}
+        <div>
+            <p>Sorry, no Products in this list.</p>
+        </div>
+        {% endfor %}
+        <div>
+            <a href="{% url 'products_list'%}">
+                <p>go back home</p>
+            </a>
+        </div>
     </div>
 </body>
 
