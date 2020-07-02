@@ -17,6 +17,10 @@
                     <h3>{{product.title}}</h3>
                 </a>
             </li>
+            {% empty %}
+            <div>
+                <p>Sorry, no Products in this list.</p>
+            </div>
             {% endfor %}
         </ul>
     </div>
