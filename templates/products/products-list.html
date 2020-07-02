@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django-k-camp Store</title>
+    <title>Products List</title>
 </head>
 
 <body>
@@ -13,10 +13,9 @@
         <ul>
             {% for product in products %}
             <li>
-                <h3>{{product.title}}</h3>
-                <p>multicoloured bucket Exterior with mesh and
-                    rhinestone details. Chain handles with combined
-                    materials. Chain shoulder strap. Lined interior.</p>
+                <a href="{{ product.get_absolute_url }}">
+                    <h3>{{product.title}}</h3>
+                </a>
             </li>
             {% endfor %}
         </ul>
