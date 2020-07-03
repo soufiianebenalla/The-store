@@ -128,4 +128,4 @@ STATIC_URL = '/static/'
 
 # herokuapp Add
 
-ALLOWED_HOSTS = ['.herokuapp.com', ]
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
