@@ -16,6 +16,7 @@
                 <a href="{% url 'product_details' product.pk %}">
                     <h3>{{product.title}}</h3>
                 </a>
+                <h5>Price: {{product.price}} $</h5>
             </li>
             {% empty %}
             <p>No Products Yet!</p>

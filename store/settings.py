@@ -25,7 +25,10 @@ SECRET_KEY = '4$1=@_0zs+6xq=+-@)i(8su!g#n!&$4dg-(0p1u3ju_#maq7#^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.herokuapp.com',
+    'localhost'
+]
 
 
 # Application definition
@@ -37,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'products'
+    'products',
 ]
 
 MIDDLEWARE = [
@@ -124,18 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-
-# herokuapp Add
-
-ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
