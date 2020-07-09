@@ -11,6 +11,7 @@ class Product(models.Model):
     description = models.TextField(max_length=500, blank=True, null=True)
     price = models.PositiveIntegerField()
     created_at = models.DateTimeField(default=datetime.now(), blank=True)
+    image = models.ImageField(upload_to='products/', null=True)
 
     def get_absolute_url(self):
         return reverse('product_details', args=(self.id,))

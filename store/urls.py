@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import redirect
 from products.views import show_time
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 def home(request):
@@ -28,4 +30,4 @@ urlpatterns = [
     path('show_time', show_time),
     path('',  home, name='home'),
     path('', include('products.urls'))
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

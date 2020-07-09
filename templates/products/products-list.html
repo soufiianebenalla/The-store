@@ -1,29 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% block head_title %}All Products{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products List</title>
-</head>
+{% block content %}
+<section id="featured-products">
 
-<body>
-    <div>
-        <h1>Products:</h1>
-        <ul>
-            {% for product in products %}
-            <li>
-                <div>{{product.brand}}</div>
-                <a href="{% url 'product_details' product.pk %}">
-                    {{product.title}}
-                </a>
-                <h3>{{product.price}}$</h3>
-            </li>
-            {% empty %}
-            <p>No Products Yet!</p>
-            {% endfor %}
-        </ul>
+    <h2 class="section-headline">Featured Products</h2>
+    <p class="section-description">
+        Refresh your look with pieces of our winter collection
+    </p>
+
+    <div class="products-wrapper clearfix">
+        {% for product in products %}
+        <div class="product">
+            <div class="product-img">
+                <img src="{{product.image.url}}" alt="">
+                <a href="{{product.get_absolute_url}}" class="details-btn">Details</a>
+            </div>
+            <div class="product-description">
+                <div class="product-brand">{{ product.brand | capfirst }}</div>
+                <a class="product-name" href="{{product.get_absolute_url}}">{{ product.title | capfirst }}</a>
+                <div class="product-price">${{ product.price | floatformat:2 }}</div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No products yet.</p>
+        {% endfor %}
     </div>
-</body>
-
-</html>
+</section>
+{% endblock %}
