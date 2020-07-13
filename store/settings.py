@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'products',
     'accounts',
-    'address',
 ]
 
 MIDDLEWARE = [
@@ -141,4 +140,4 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-GOOGLE_API_KEY = 'AIzaSyD--your-google-maps-key-SjQBE'
+
