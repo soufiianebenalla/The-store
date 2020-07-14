@@ -31,12 +31,16 @@ ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    # django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+
+    # My apps
     'products',
     'accounts',
 ]
@@ -106,6 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Redirect login and logout
 
 LOGIN_REDIRECT_URL = 'home'
@@ -137,7 +142,6 @@ STATICFILES_DIRS = [
 ]
 
 
+# Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
