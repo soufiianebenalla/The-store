@@ -1,5 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Password Active Email{% endblock %}
+
+{% block content %}
+
+
 Hi {{ user.username}},
 
 Please click on the link below to confirm your regisration:
 
 {{ domain }}{% url 'activate_email' uid=uid token=token%}
+
+{% endblock %}
