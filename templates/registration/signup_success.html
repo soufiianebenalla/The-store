@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
-{% block head_title %}Signup Success{% endblock %}
+{% block title %}Signup Successful{% endblock %}
 
 {% block content %}
-
-<p>Confirmation email sent!</p>
-
+<section>
+    <div>
+        <h1 class="section-headline">Thank you {{ user.username }}!</h1>
+        <p>Confirmation email sent to {{ user.email }}</p>
+        <a class="back" href="{% url 'home' %}">Return to products</a>
+    </div>
+</section>
 {% endblock %}
