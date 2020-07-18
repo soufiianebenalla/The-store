@@ -13,7 +13,7 @@ class Cart(models.Model):
     user = models.OneToOneField(
         User, related_name='cart', on_delete=models.CASCADE)
 
-    Items = models.ManyToManyField(Product)
+    items = models.ManyToManyField(Product, null=True, blank=True)
 
     update_at = models.DateTimeField(auto_now=True)
 

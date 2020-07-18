@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block head_title %}My Cart{% endblock %}
+
+{% block content %}
+
+<ul>
+
+    {% for product in products %}
+
+    <div>
+
+        <li>
+
+            <h2>
+                {{ product.title | capfirst }}
+            </h2>
+
+            <a href="{% url 'remove_cart' product_id=product.id %}">
+                Remove from cart
+            </a>
+
+        </li>
+
+    </div>
+
+    {% empty %}
+
+    <li>
+        <p>No Products Yet.</p>
+    </li>
+
+    {% endfor %}
+
+</ul>
+
+
+
+
+
+
+{% endblock %}

@@ -1,7 +1,9 @@
 {% extends "base.html" %}
+
 {% block head_title %}{{product.title | capfirst }}{% endblock %}
 
 {% block content %}
+
 <section class="single-product-details clearfix">
     <div class="product-details-img">
         <img src="{{product.image.url}}" alt="" />
@@ -13,6 +15,8 @@
         <p class="product-desc">
             {{product.description}}
         </p>
+        <a href="{% url 'add_to_cart' product_id=product.id %}">Add product</a>
     </div>
 </section>
+
 {% endblock %}
