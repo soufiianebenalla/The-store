@@ -1,69 +1,59 @@
 {% extends "base.html" %}
-
-{% block head_title %}My Cart{% endblock %}
+{% block head_title %}All Products{% endblock %}
 
 {% block content %}
-
 <section class="clearfix">
 
-    <h2 class="section-headline">Your cart</h2>
-
+    <h2 class="section-headline">Your Cart</h2>
     <p class="section-description">
-        All products you've added to your cart
+        Please check your products before checkout.
     </p>
 
     <div class="cart">
         <ul>
-
             {% for product in products %}
-
             <li class="item">
                 <div class="cart-product-img">
-                    <img src="{{product.image.url}}" alt="{{ product.title }}">
+                    <img src="{{ product.image.url }}" alt="{{ product.title }}" />
                 </div>
                 <div>
-                    <h2>
-                        {{ product.title | capfirst }}
-                    </h2>
+                    <h3>{{ product.title | capfirst }}</h3>
                 </div>
-                <div></div>
                 <div>
-                    <p><strong>Price:</strong> ${{ product.price | floatformat:2 }}</p><br>
-                    <a href="{% url 'remove_cart' product_id=product.id %}">
-                        <button type="submit">Remove from cart</button>
-                    </a>
+                    <p>${{ product.price | floatformat:2 }}</p>
+                </div>
+                <div>
+                    <a href="{% url 'remove_cart' product_id=product.id %}" class="remove">x</a>
                 </div>
             </li>
-
             {% empty %}
-
             <li>
                 <p>
                     Your Cart still empty click <a href="{% url 'home' %}">Here</a>,
                     for chosing some products they make you Happy to buy it.
                 </p>
             </li>
-
             {% endfor %}
 
-            <li id="cart-summary" class="item">
+
+            <li class="item" id="cart-summary">
                 <div>
-                    <p><strong>Total Price:</strong> ${{ total_price }}</p>
+                    <p></p>
                 </div>
                 <div>
-                    <a href="{% url 'order_create' %}" class="checkout">
-                        <button type="submit">Checkout</button>
-                    </a>
-                    <a href="{% url 'remove_all_cart' %}" class="clear">
-                        <button type="submit">Clean Cart</button>
-                    </a>
+                    <h3>Total</h3>
+                </div>
+                <div>
+                    <p>${{ total_price | floatformat:2 }}</p>
+                </div>
+                <div>
+                    <a href="{% url 'order_create' %}" class="checkout">Checkout</a>
+                    <a href="{% url 'remove_all_cart' %}" class="clear">Clear Cart</a>
                 </div>
             </li>
 
         </ul>
-
     </div>
-
 </section>
-
+<a class="back" href="{% url 'home' %}">Back to Store</a>
 {% endblock %}

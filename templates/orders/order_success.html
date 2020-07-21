@@ -1,25 +1,17 @@
 {% extends "base.html" %}
-
 {% block head_title %}Make Order{% endblock %}
 
 {% block content %}
 <section>
-
     <div>
         <h1 class="section-headline">Thank You!</h1>
-
         <p class="section-description">
             Hi Dear {{ user.username | capfirst }}: <br>
-            Your order has been successfully completed. Your order <strong>ID</strong> is {{ order.id }}. <br>
-            Please check your <strong>inbox</strong> for further information about your order.
+            Your order has been successfully completed. Your order <strong>ID</strong> is {{ order.id }},
+            and <strong>Please check your email</strong> for further information about your
+            order.
         </p>
-
-        <a class="back" href="{% url 'home' %}">
-            <button>Continue to Homepage</button>
-        </a>
-
+        <a class="back" href="{% url 'home' %}">Continue to homepage</a>
     </div>
-
 </section>
-
 {% endblock %}

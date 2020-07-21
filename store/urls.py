@@ -27,8 +27,10 @@ def home(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('show_time', show_time),
     path('',  home, name='home'),
+
     path('', include('products.urls')),
     path('', include('accounts.urls')),
     path('', include('carts.urls')),
