@@ -30,19 +30,29 @@
                     <div>
                         {% if user.is_authenticated %}
 
+                        <div id="cart">
+                            <a href="{% url 'cart' %}">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+                        </div>
+
                         <p>Hi, {{ user.username }}</p>
-                        <a href="{% url 'logout' %}" class="nav navbar-nav navbar-right btn btn-primary">Log Out</a>
+                        <a href="{% url 'logout' %}">
+                            <span class="glyphicon glyphicon-log-in">
+                                <button type="submit">Log Out</button>
+                            </span>
+
+                        </a>
 
                         {% else %}
 
-                        <a href="{% url 'login' %}" class="nav navbar-nav navbar-right btn btn-primary"><span
-                                class="glyphicon glyphicon-log-in"></span> Login</a>
+                        <a href="{% url 'login' %}">
+                            <span class="glyphicon glyphicon-log-in">
+                                <button type="submit">Login</button>
+                            </span>
+                        </a>
 
                         {% endif %}
-                    </div>
-                </div>
-                <div id="controls">
-                    <div id="cart">
                     </div>
                 </div>
 
@@ -52,7 +62,9 @@
 
         <!--MAIN-->
         <main>
-            {% block content %}{% endblock %}
+            {% block content %}
+
+            {% endblock %}
         </main>
     </div>
 

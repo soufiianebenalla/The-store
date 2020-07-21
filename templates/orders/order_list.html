@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block head_title %}Orders List{% endblock %}
+
+{% block content %}
+
+<ul>
+
+    {% for order in orders %}
+
+    <li>
+        <p>User: {{ order.user }}</p>
+        <p>order address: {{ order.address }}</p>
+        <p>order id: {{ order.id }}</p>
+        <p>order total: {{ order.total_price }}</p>
+    </li>
+
+    {% empty %}
+
+    <li><strong>No orders yet.</strong></li>
+
+    {% endfor %}
+
+</ul>
+
+{% endblock %}

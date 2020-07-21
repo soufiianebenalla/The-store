@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.db.models import Sum
 
 from .models import Cart
 from products.models import Product
@@ -29,10 +30,10 @@ def remove_cart(request, product_id):
 
 
 @login_required
-def remove_all_cart(request, product_id):
+def remove_all_cart(request):
     cart = request.user.cart
 
-    cart.items.delete()
+    cart.items.clear()
 
     return redirect('cart')
 
@@ -40,9 +41,12 @@ def remove_all_cart(request, product_id):
 @login_required
 def cart(request):
     user = request.user
+
     products = user.cart.items.all()
 
-    context = {'products': products}
+    total_price = list(products.aggregate(Sum('price')).values())[0]
+
+    context = {'products': products, 'total_price': total_price}
     return render(request, 'carts/cart.html', context)
 
 

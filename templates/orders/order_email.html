@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} Order Email {% endblock %}
+
+{% block content %}
+
+<div class="order-info">
+
+    <h1>Hi {{ user.username | capfirst }}:</h1>
+
+    <p>You have a new order to address: {{ order.address }}</p>
+
+    <p>Order Total: ${{ order.total_price }}</p>
+
+    <p>order id: {{ order.id }}</p>
+
+    <p>Order Date : {{ order.created_at }}</p>
+
+</div>
+
+{% endblock %}

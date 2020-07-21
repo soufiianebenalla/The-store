@@ -2,21 +2,19 @@ from django.db import models
 from django.contrib.auth import get_user_model
 
 from products.models import Product
-from carts.models import Cart
-
 
 User = get_user_model()
 
 
 class Order(models.Model):
-    user = models.OneToOneField(
-        User, related_name='Order', on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        User, related_name='orders', on_delete=models.CASCADE)
 
-    items = models.ManyToManyField(Cart, null=True, blank=True)
+    items = models.ManyToManyField(Product)
 
-    order = models.ManyToManyField(Product, related_name='items')
+    address = models.CharField(max_length=500, default='')
 
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.user)
+        return f'{self.user.username}\'s order'

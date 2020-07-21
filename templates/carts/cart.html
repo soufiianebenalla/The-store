@@ -1,41 +1,69 @@
 {% extends "base.html" %}
+
 {% block head_title %}My Cart{% endblock %}
 
 {% block content %}
 
-<ul>
+<section class="clearfix">
 
-    {% for product in products %}
+    <h2 class="section-headline">Your cart</h2>
 
-    <div>
+    <p class="section-description">
+        All products you've added to your cart
+    </p>
 
-        <li>
+    <div class="cart">
+        <ul>
 
-            <h2>
-                {{ product.title | capfirst }}
-            </h2>
+            {% for product in products %}
 
-            <a href="{% url 'remove_cart' product_id=product.id %}">
-                Remove from cart
-            </a>
+            <li class="item">
+                <div class="cart-product-img">
+                    <img src="{{product.image.url}}" alt="{{ product.title }}">
+                </div>
+                <div>
+                    <h2>
+                        {{ product.title | capfirst }}
+                    </h2>
+                </div>
+                <div></div>
+                <div>
+                    <p><strong>Price:</strong> ${{ product.price | floatformat:2 }}</p><br>
+                    <a href="{% url 'remove_cart' product_id=product.id %}">
+                        <button type="submit">Remove from cart</button>
+                    </a>
+                </div>
+            </li>
 
-        </li>
+            {% empty %}
+
+            <li>
+                <p>
+                    Your Cart still empty click <a href="{% url 'home' %}">Here</a>,
+                    for chosing some products they make you Happy to buy it.
+                </p>
+            </li>
+
+            {% endfor %}
+
+            <li id="cart-summary" class="item">
+                <div>
+                    <p><strong>Total Price:</strong> ${{ total_price }}</p>
+                </div>
+                <div>
+                    <a href="{% url 'order_create' %}" class="checkout">
+                        <button type="submit">Checkout</button>
+                    </a>
+                    <a href="{% url 'remove_all_cart' %}" class="clear">
+                        <button type="submit">Clean Cart</button>
+                    </a>
+                </div>
+            </li>
+
+        </ul>
 
     </div>
 
-    {% empty %}
-
-    <li>
-        <p>No Products Yet.</p>
-    </li>
-
-    {% endfor %}
-
-</ul>
-
-
-
-
-
+</section>
 
 {% endblock %}

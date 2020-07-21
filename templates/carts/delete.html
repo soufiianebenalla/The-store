@@ -1,15 +1,18 @@
 {% extends "base.html" %}
+
+{% csrf_token %}
+
 {% block head_title %}My Cart{% endblock %}
 
 {% block content %}
 
-{% csrf_token %}
 
-<p>Are you sure want to delete "{{item}}"?</p>
+
+<p>Are you sure want to delete "{{ cart.item }}"?</p>
 
 <form method="POST">
-
-    <a href="{% url 'home' ^}">Cancel</a>
+    {% csrf_token %}
+    <a href="{% url 'cart' %}">Cancel</a>
 
     <input type="submit" name="Confirm">
 </form>
