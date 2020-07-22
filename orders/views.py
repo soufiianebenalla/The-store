@@ -19,7 +19,9 @@ def order_create(request):
         if form.is_valid():
             order = form.save(user)
             send_order_email(request, user, order)
-            return render(request, 'orders/order_success.html')
+
+            context = {'order': order}
+            return render(request, 'orders/order_success.html', context)
 
     else:
         form = OrderCreateForm()
