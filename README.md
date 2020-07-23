@@ -1,7 +1,7 @@
 # Django-k camp store
 
-⋅⋅⋅This is a simple readme file for my Github " **Django-k camp store** ".
-We're learning " **The [Coretabs](https://coretabs.net/k-camps/django/) Django-k project** "
+⋅⋅⋅ This is a simple readme file for my Github **Django-k camp store**.
+We're learning **The [Coretabs](https://coretabs.net/k-camps/django/) Django-k project**.
 
 # The Coretabs Django-k camp project
 
