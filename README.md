@@ -9,25 +9,26 @@ We're learning " **The [Coretabs](https://coretabs.net/k-camps/django/) Django-k
 
 # Trainers
 
-    * [Mohamed Alhakem](https://forums.coretabs.net/u/alhakem/summary)
-    * [Yaser AlNajjar](https://forums.coretabs.net/u/yaseralnajjar/summary)
-    * [Hichem Ahmed](https://forums.coretabs.net/u/hichem2h/summary)
-    * [Ahmed Alrifai](https://forums.coretabs.net/u/ahmedalrifai/summary)
+     [Mohamed Alhakem](https://forums.coretabs.net/u/alhakem/summary)
+     [Yaser AlNajjar](https://forums.coretabs.net/u/yaseralnajjar/summary)
+     [Hichem Ahmed](https://forums.coretabs.net/u/hichem2h/summary)
+     [Ahmed Alrifai](https://forums.coretabs.net/u/ahmedalrifai/summary)
 
+***
 
 # coretabs
 
-    Django-k camp store
-        * Techs & frameworks
-        * Links
-        * Wireframes
-        * Trainers
+    ⋅⋅⋅Django-k camp store
+        *Techs & frameworks
+        *Links
+        *Wireframes
+        *Trainers
 
 # Techs & frameworks
 
-    **Django (python)**
+    **Django & python**
 
 # Links
 
-    * Tasks board on Trello
-    * Live demo Heroku
+    *Tasks board on Trello
+    *Live demo Heroku
