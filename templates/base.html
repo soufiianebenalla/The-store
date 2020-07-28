@@ -7,39 +7,88 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'normalize.css' %}" />
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
-    <link href="https://fonts.googleapis.com/css?family=Questrial|Domine" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
     <title>{% block head_title %}STORE{% endblock %}</title>
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="site-wrap">
         <!--HEADER-->
-        <header>
-            <h1 id="logo">
-                <a href="{% url 'home' %}">STORE</a>
-            </h1>
+        <header class="site-navbar" role="banner">
+            <div class="site-navbar-top">
+                <div class="container">
+                    <div class="row align-items-center">
 
-            <div id="controls">
-                <div id="cart">
-                    <!--1-->
-                    <a href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i></a>
+                        <div class="col-6 col-md-4 order-2 order-md-1 text-left">
+                            <div class="main-nav d-none d-lg-block site-navigation  text-left text-md-center">
+                                <div class="container">
+                                    <ul class="site-menu js-clone-nav d-none d-md-block">
+                                        <li class="navbar-top"><a href="{% url 'home' %}">Home</a></li>
+                                        <li class="navbar-top"><a href="#">About</a></li>
+                                        <li class="navbar-top"><a href="#">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
 
-                    {% if request.user.cart.items.all|length > 0 %}
-                    <span id="cart-counter">
-                        {{ request.user.cart.items.all|length }}
-                    </span>
-                    {% endif %}
+                        <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+                            <div class="site-logo">
+                                <a href="{% url 'home' %}" class="js-logo-clone store"> STORE</a>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+                            <div class="site-top-icons">
+                                <ul>
+                                    <li>
+                                        <a href="{% url 'cart' %}" class="site-cart">
+                                            <span class="icon icon-shopping_cart"></span>
+                                            {% if request.user.cart.items.all|length > 0 %}
+                                            <span class="count">{{ request.user.cart.items.all|length }}</span>
+                                            {% endif %}
+                                        </a>
+                                    </li>
+                                    {% if user.is_authenticated %}
+                                    <li>
+                                        <span>
+                                            <p>Hi, {{ user.username }}</p>
+                                        </span>
+                                    </li>
+                                    <li><a href="{% url 'logout' %}" class="logout-btn">logout</a></li>
+                                    {% else  %}
+                                    <li><a href="{% url 'login' %}"><span class="icon icon-person"></a></li>
+                                    {% endif %}
+                                    <li class="d-inline-block d-md-none ml-md-0"><a href="#"
+                                            class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-
-                {% if user.is_authenticated %}
-                <p>Hi, {{ user.username }}</p>
-                <input type="button" id="logout" onclick="location.href='{% url 'logout' %}'" value="Log out" />
-                {% else  %}
-                <input type="button" id="login" onclick="location.href='{% url 'login' %}'" value="Log in" />
-                {% endif %}
             </div>
+            <nav class="site-navigation text-right text-md-center" role="navigation">
+                <div class="container">
+                    <ul class="site-menu js-clone-nav d-none d-md-block">
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Popular Products</a></li>
+                        <li><a href="#">Catalogue</a></li>
+                        <li><a href="#">Most Rated</a></li>
+                    </ul>
+                </div>
+            </nav>
         </header>
 
         <!--MAIN-->
@@ -49,17 +98,99 @@
     </div>
 
     <!--FOOTER-->
-    <footer>
+    <footer class="site-footer border-top">
         <a href="#" id="scroll-up">
             <i class="fas fa-chevron-up"></i>
         </a>
-        <!--2-->
-        <p>&copy; 2020 STORE All Rights Reserved.</p>
-        <!--2-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="footer-heading mb-4">Navigations</h3>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Sell online</a></li>
+                                <li><a href="#">Features</a></li>
+                                <li><a href="#">Shopping cart</a></li>
+                                <li><a href="#">Store builder</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Mobile commerce</a></li>
+                                <li><a href="#">Dropshipping</a></li>
+                                <li><a href="#">Website development</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Point of sale</a></li>
+                                <li><a href="#">Hardware</a></li>
+                                <li><a href="#">Software</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                    <h3 class="footer-heading mb-4">Promo</h3>
+                    <a href="#" class="block-6">
+                        <img src="{% static 'images/hero_1.jpg' %}" alt="Image placeholder"
+                            class="img-fluid rounded mb-4">
+                        <h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
+                        <p>Promo from nuary 15 &mdash; 25, 2019</p>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="block-5 mb-5">
+                        <h3 class="footer-heading mb-4">Contact Info</h3>
+                        <ul class="list-unstyled">
+                            <li class="address">203 Fake St. Mountain View, San Francisco, California, USA</li>
+                            <li class="phone"><a href="tel://23923929210">+2 392 3929 210</a></li>
+                            <li class="email">emailaddress@domain.com</li>
+                        </ul>
+                    </div>
+
+                    <div class="block-7">
+                        <form action="#" method="post">
+                            <label for="email_subscribe" class="footer-heading">Subscribe</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control py-4" id="email_subscribe" placeholder="Email">
+                                <input type="submit" class="btn btn-sm btn-primary" value="Send">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-5 mt-5 text-center">
+                <div class="col-md-12">
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script data-cfasync="false"
+                            src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> STORE All Rights Reserved <i class="icon-heart" aria-hidden="true"></i> by
+                        <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a> | <a
+                            href="#">STORE</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+
+            </div>
+        </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous">
-    </script>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
 </body>
 
 </html>

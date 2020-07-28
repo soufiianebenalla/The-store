@@ -2,20 +2,61 @@
 {% block head_title %}{{product.title | capfirst }}{% endblock %}
 
 {% block content %}
-<section class="single-product-details clearfix">
-    <div class="product-details-img">
-        <img src="{{product.image.url}}" alt="" />
-    </div>
-    <div class="product-details-desc">
-        <div class="product-brand">{{product.brand | capfirst }}</div>
-        <h2 class="product-name">{{product.title | capfirst }}</h2>
-        <div class="product-price">${{product.price | floatformat:2 }}</div>
-        <p class="product-desc">
-            {{product.description}}
-        </p>
-        <div class="cart-btn-box">
-            <a href="{% url 'add_to_cart' product_id=product.id %}"><i class="fas fa-cart-plus"></i> Add to cart</a>
+
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="image col-md-6">
+                <img src="{{product.image.url}}" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-black">{{product.title | capfirst }}</h2>
+                <h3 class="brand">{{product.brand | capfirst }}</h3>
+                <p>{{product.description}}</p>
+                <p class="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis. Quos
+                    repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis illum
+                    hic magni iste, velit aperiam quis.</p>
+                <p><strong class="text-primary h4">${{product.price | floatformat:2 }}</strong></p>
+                <div class="mb-1 d-flex">
+                    <label for="option-sm" class="d-flex mr-3 mb-3">
+                        <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"
+                                id="option-sm" name="shop-sizes"></span> <span
+                            class="d-inline-block text-black">Small</span>
+                    </label>
+                    <label for="option-md" class="d-flex mr-3 mb-3">
+                        <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"
+                                id="option-md" name="shop-sizes"></span> <span
+                            class="d-inline-block text-black">Medium</span>
+                    </label>
+                    <label for="option-lg" class="d-flex mr-3 mb-3">
+                        <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"
+                                id="option-lg" name="shop-sizes"></span> <span
+                            class="d-inline-block text-black">Large</span>
+                    </label>
+                    <label for="option-xl" class="d-flex mr-3 mb-3">
+                        <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"
+                                id="option-xl" name="shop-sizes"></span> <span class="d-inline-block text-black"> Extra
+                            Large</span>
+                    </label>
+                </div>
+                <div class="mb-5">
+                    <div class="input-group mb-3" style="max-width: 120px;">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                        </div>
+                        <input type="text" class="form-control text-center" value="1" placeholder=""
+                            aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                        </div>
+                    </div>
+
+                </div>
+                <p><a href="{% url 'add_to_cart' product_id=product.id %}" class="buy-now btn btn-sm btn-primary">Add To
+                        Cart</a></p>
+
+            </div>
         </div>
     </div>
-</section>
+</div>
 {% endblock %}
