@@ -4,11 +4,13 @@
 
 {% block content %}
 
+<div>
+    <h1>Hi {{ user.username}},</h1>
 
-Hi {{ user.username}},
+    <p>Please click on the link below to confirm your regisration:</p>
+</div>
 
-Please click on the link below to confirm your regisration:
+<div>{{ domain }}{% url 'activate_email' uid=uid token=token%}</div>
 
-{{ domain }}{% url 'activate_email' uid=uid token=token%}
 
 {% endblock %}
